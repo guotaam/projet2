@@ -1,0 +1,37 @@
+
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+<div class="container mt-5  col-6 ">
+
+
+     {{ form_row(formVehicule.titre) }}
+     {{ form_row(formVehicule.marque) }}
+     {{ form_row(formVehicule.modele) }}
+     {{ form_row(formVehicule.description,{
+        label:"Contenu",
+        attr:{
+        placeholder:"Contenu d"
+        }
+   
+      }) }}
+     {{ form_row(formVehicule.photo) }}
+      {{ form_row(formVehicule.prix_journalier) }}
+       {{ form_row(formVehicule.date_enregistrement) }}
+
+     
+    
+     
+     <br>
+<button type="submit" class="btn btn-primary mt-2"> Ajouter l'article</button>
+</div>
+ 
+
+{{form_end(formVehicule)}}
+   
+
+
+{% endblock %}
