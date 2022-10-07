@@ -42,13 +42,14 @@ public function formVehicule(Request $globals, EntityManagerInterface $manager, 
 {
     if($Vehicule == null) {
         $vehicule= new Vehicule; 
-        $vehicule->setdateenregistrement(new \DateTime); 
+       
     }
 
     $form=$this->createForm(VehiculeType::class, $vehicule); 
     $form->handleRequest($globals);
 
     if($form->isSubmitted() && $form->isValid()) {
+        $vehicule->setdateenregistrement(new \DateTime); 
         $manager->persist($vehicule); 
         $manager->flush();
         $this->addFlash('succes',"Vehicule a bien été enregistré");
@@ -58,7 +59,7 @@ public function formVehicule(Request $globals, EntityManagerInterface $manager, 
         ]);
        
     }
-    return $this->renderForm('admin/admin_vehicules.html.twig', [
+    return $this->renderForm('vehicule/form.html.twig', [
         'formVehicule'=> $form,
         'editMode'=> $vehicule->getId() !== null
     ]);
