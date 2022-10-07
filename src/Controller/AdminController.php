@@ -38,9 +38,9 @@ class AdminController extends AbstractController
     }
     #[Route('/admin/vehicule/new', name: 'admin_new_vehicules')]
     #[Route('/admin/vehicule/edit/{id}', name: 'admin_edit_vehicules')]
-public function formVehicule(Request $globals, EntityManagerInterface $manager, Vehicule $Vehicule = null)
+public function formVehicule(Request $globals, EntityManagerInterface $manager, Vehicule $vehicule = null)
 {
-    if($Vehicule == null) {
+    if($vehicule == null) {
         $vehicule= new Vehicule; 
        
     }
